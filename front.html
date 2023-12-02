@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Microservicio</title>
+    <style>
+        button {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="solicitarServicio('servicio1')">Servicio 1</button>
+    <button onclick="solicitarServicio('servicio2')">Servicio 2</button>
+    <button onclick="solicitarServicio('servicio3')">Servicio 3</button>
+
+    <script>
+        function solicitarServicio(service) {
+            if (service == 'servicio1')
+                fetch('http://localhost:3000/api/urgencias/documentos') // Añade /api/ antes del nombre del servicio
+                    .then(response => response.json())
+                    .then(data => {
+                        window.location.href = 'resultado.html?data=' + encodeURIComponent(JSON.stringify(data));
+                    })
+                    .catch(error => console.error('Error:', error));
+            
+                    
+        }
+    </script>
+</body>
+</html>
+

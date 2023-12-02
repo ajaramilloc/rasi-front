@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado del Servicio</title>
+</head>
+<body>
+    <h1>Resultado del Servicio</h1>
+    <div id="resultado"></div>
+
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const data = JSON.parse(decodeURIComponent(params.get('data')));
+            document.getElementById('resultado').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+        };
+    </script>
+</body>
+</html>
